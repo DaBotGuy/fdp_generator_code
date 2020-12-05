@@ -1,0 +1,160 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    --primary-color: rgb(51, 116, 255);
+    background-color: lightcyan;
+    color: rgb(37, 37, 37);
+}
+
+
+/* ELEMENTS */
+
+a {
+    margin: 0px;
+    padding: 0px;
+}
+
+input {
+    display: block;
+    margin: 3px;
+    width: 50%;
+    border: 3px dashed rgb(37, 37, 37);
+    padding: 2px;
+    padding-left: 5px;
+    position: relative;
+    transition: border 0.2s ease-in, left 0.4s ease-in;
+    left: 0px;
+}
+
+input:focus {
+    border: 3px solid var(--primary-color);
+    outline-width: 0px;
+    left: 10px;
+}
+
+#generateButton {
+    border: 0px;
+    width: 40%;
+    margin: 10px;
+    padding: 10px;
+    background-color: hsl(39, 100%, 65%);
+    border-bottom: 5px solid hsl(16, 100%, 65%);
+    position: relative;
+    top: 0px;
+    cursor: pointer;
+}
+
+#generateButton:hover {
+    background-color: rgb(255, 203, 106);
+}
+
+#generateButton:focus {
+    border: 0px;
+    top: 5px;
+    outline-width: 0px;
+}
+
+.formArea {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner {
+    margin: 0px;
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: solid rgba(37, 37, 37, 0.5) 5px;
+}
+
+.outputArea button {
+    border: 0px;
+    background-color: hsl(130, 100%, 65%);
+    border-bottom: 5px solid hsl(107, 60%, 43%);
+    width: 40%;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    top: 0px;
+    cursor: pointer;
+}
+
+.outputArea button:hover {
+    background-color: rgb(118, 255, 141);
+}
+
+.outputArea button:focus {
+    border-bottom: 0px;
+    top: 5px;
+    outline-width: 0px;
+}
+
+
+/* TYPOGRAPHY */
+
+h1,
+h5,
+p {
+    cursor: default;
+    margin: 0px;
+}
+
+h1 {
+    padding: 15px;
+}
+
+h5 {
+    padding: 5px;
+    letter-spacing: 2px;
+}
+
+#output {
+    margin: 10px;
+}
+
+input p {
+    display: block;
+    text-align: right;
+}
+
+#output {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.right-floating {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 3px;
+}
+
+.left-floating {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 3px;
+}
+
+
+/* FOR MOBILE */
+
+@media (max-width: 600px) {
+    input {
+        width: 75%;
+    }
+    #generateButton {
+        width: 65%;
+    }
+    #output {
+        font-size: 14px;
+    }
+}

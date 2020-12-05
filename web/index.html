@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="scaffolded-by" content="https://github.com/dart-lang/stagehand">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro" rel="stylesheet">
+    <title>FDP generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <script defer src="main.dart.js"></script>
+</head>
+
+<body>
+    <h5 class="right-floating">
+        Created by @dabotguy
+    </h5>
+    <a class="left-floating" href="">Learn more about FDPs</a>
+
+    <div class="banner">
+        <h1>
+            FDP generator
+        </h1>
+        <h5>
+            Facts Derived Passwords let you store your passwords without "storing"
+        </h5>
+
+    </div>
+    <div class="formArea">
+
+        <input type="text" placeholder="email" id="emailField">
+        <p>Ex: me@gmail.com</p>
+        <input type="text" placeholder="domain" id="domainField">
+        <p>Ex: twitter.com</p>
+        <input type="password" placeholder="master password" id="masterPasswordField">
+        <p>*It can have any length</p>
+        <input type="number" placeholder="id" id="idField">
+        <p>*Giving a new id produces a new FDP</p>
+        <button id="generateButton">GENERATE</button>
+    </div>
+    <div class="outputArea">
+        <div id="output"> </div>
+        <!-- <button>COPY</button> -->
+    </div>
+</body>
+
+</html>
