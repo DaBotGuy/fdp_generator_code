@@ -11,7 +11,6 @@ void main() {
   var generateButton = document.querySelector('#generateButton');
   generateButton.addEventListener('click', (e) {
     try {
-      print('CLIKIN ME, idi8');
       // unfocus the button
       focusField();
       String email = extractData('emailField');
@@ -24,12 +23,11 @@ void main() {
       fdp = generateFDP(email, domain, id, masterPassword);
       setOutput(fdp);
     } catch (e) {
-      print(e);
     }
   });
   Element copyButton = document.querySelector('.outputArea button');
   copyButton.addEventListener('click', (event) {
-    print(fdp);
+    _copyToClipboardHack(fdp);
     focusField();
   });
 }
@@ -72,8 +70,6 @@ String generateFDP(String email, String domain, String id, String masterPass) {
 }
 
 String aesEncrypt(String message, String keyString) {
-  print('PUBLIC FAX' + message);
-  print('PRIVATE FAX' + keyString);
   final aes = AESKey(Uint8List.fromList(keyString.codeUnits));
   String encoded = aes.encryptToBase64(message);
   return encoded;
@@ -95,7 +91,6 @@ bool isDomain(String input) {
   bool isDomainBool = RegExp(
           r'^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9]))\.([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}\.[a-zA-Z]{2,3})$')
       .hasMatch(input);
-  print('$input isDomain = $isDomainBool');
   return isDomainBool;
 }
 
@@ -107,3 +102,19 @@ void focusField() {
 }
 
 // Copy
+
+bool _copyToClipboardHack(String text) {
+  final textarea = new TextAreaElement();
+  document.body.append(textarea);
+  textarea.style.border = '0';
+  textarea.style.margin = '0';
+  textarea.style.padding = '0';
+  textarea.style.opacity = '0';
+  textarea.style.position = 'absolute';
+  textarea.readOnly = true;
+  textarea.value = text;
+  textarea.select();
+  final result = document.execCommand('copy');
+  textarea.remove();
+  return result;
+}
