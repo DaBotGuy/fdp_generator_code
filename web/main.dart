@@ -2,7 +2,7 @@ import 'dart:html';
 import 'package:ninja/ninja.dart';
 import 'dart:typed_data';
 import 'package:validators/validators.dart';
-
+import 'package:pq_toast/pq_toast.dart';
 // Clipboard feature
 // Article
 
@@ -22,12 +22,19 @@ void main() {
       }
       fdp = generateFDP(email, domain, id, masterPassword);
       setOutput(fdp);
-    } catch (e) {
-    }
+    } catch (e) {}
   });
   Element copyButton = document.querySelector('.outputArea button');
   copyButton.addEventListener('click', (event) {
-    _copyToClipboardHack(fdp);
+    if (fdp != '') {
+      if (_copyToClipboardHack(fdp)) {
+        success("FDP copied");
+      } else {
+        error("Copy Failed :(");
+      }
+    } else {
+      info('You have to Generate FDP first');
+    }
     focusField();
   });
 }
@@ -54,7 +61,7 @@ bool validate(String email, String domain, String masterPassword, String id) {
   }
 
   if (errorString != '') {
-    window.alert(errorString);
+    error(errorString);
   }
   return errorString == '';
 }
@@ -117,4 +124,26 @@ bool _copyToClipboardHack(String text) {
   final result = document.execCommand('copy');
   textarea.remove();
   return result;
+}
+
+void error(String msg) {
+  Toast.showToast(
+    message: msg,
+    symbol: "X",
+    symbolBgColor: "#5b0e0e",
+    messageBgColor: "#ce4f4f",
+  );
+}
+
+void info(String msg) {
+  Toast.showInfoToast(msg);
+}
+
+void success(String msg) {
+  Toast.showToast(
+    message: msg,
+    symbol: "+",
+    symbolBgColor: "#175f28",
+    messageBgColor: "#4a995d",
+  );
 }

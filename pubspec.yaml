@@ -9,6 +9,7 @@ environment:
 dependencies:
   ninja: ^3.0.1
   validators: ^2.0.0
+  pq_toast: ^1.0.0
 #   args: ^1.6.0
 #   asn1lib: ^0.8.1
 #   clock: ^1.0.1
