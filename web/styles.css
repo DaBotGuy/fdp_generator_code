@@ -1,59 +1,107 @@
 html,
 body {
+    /* Bannars, input focus and stuff */
+    /* bordering banners */
+    /* Backgrounds */
+    /* --background-color: rgb(41, 41, 41);
+    --primary-color: #ec6133;
+    --primary-color-dark: #cc5027; */
+    --background-color: rgb(49, 49, 49);
+    --primary-color: #927fbf;
+    --primary-color-dark: #6f579e;
+    /* Buttons and stuff */
+    /* --secondary-color-light: rgb(255, 203, 106);
+    --secondary-color: hsl(39, 100%, 65%);
+    --secondary-color-dark: hsl(16, 100%, 65%); */
+    --secondary-color-light: #a997d3;
+    --secondary-color: #927fbf;
+    --secondary-color-dark: #6f579e;
+    /* Buttons and stuff */
+    --tertiary-color-light: rgb(118, 255, 141);
+    --tertiary-color: hsl(130, 100%, 65%);
+    --tertiary-color-dark: 5px solid hsl(107, 60%, 43%);
+    --black-shade: rgb(37, 37, 37);
+    --white-shade: rgb(187, 187, 187);
+    --text-color: rgba(37, 37, 37, 0.9);
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
-    --primary-color: rgb(51, 116, 255);
-    background-color: lightcyan;
-    color: rgb(37, 37, 37);
+    background-color: var(--background-color);
+    color: var(--black-shade);
+}
+
+
+/* SELECTIONS */
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+a::selection,
+button::selection {
+    background-color: white;
+}
+
+input::selection {
+    background-color: var(--primary-color);
 }
 
 
 /* ELEMENTS */
 
 a {
+    color: var(--white-shade);
     margin: 0px;
     padding: 0px;
+    text-align: left;
+    width: 40%;
 }
 
 input {
     display: block;
     margin: 3px;
     width: 50%;
-    border: 3px dashed rgb(37, 37, 37);
+    height: 2rem;
+    /* border: 3px dashed var(--black-shade); */
+    border: 5px solid transparent;
     padding: 2px;
     padding-left: 5px;
     position: relative;
-    transition: border 0.2s ease-in, left 0.4s ease-in;
+    transition: border 0.2s ease-in, left 0.4s;
+    transition-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
     left: 0px;
 }
 
 input:focus {
-    border: 3px solid var(--primary-color);
+    border: 5px solid var(--primary-color);
     outline-width: 0px;
-    left: 10px;
+    left: 20px;
 }
 
-#generateButton {
+button {
     border: 0px;
     width: 40%;
     margin: 10px;
+    margin-bottom: 3px;
     padding: 10px;
-    background-color: hsl(39, 100%, 65%);
-    border-bottom: 5px solid hsl(16, 100%, 65%);
+    background-color: var(--secondary-color);
+    border-bottom: 5px solid var(--secondary-color-dark);
     position: relative;
     top: 0px;
     cursor: pointer;
 }
 
-#generateButton:hover {
-    background-color: rgb(255, 203, 106);
+button:hover {
+    background-color: var(--secondary-color-light);
 }
 
-#generateButton:focus {
+button:focus {
     border: 0px;
     top: 5px;
     outline-width: 0px;
@@ -69,13 +117,14 @@ input:focus {
 .banner {
     margin: 0px;
     background-color: var(--primary-color);
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-color);
     padding-top: 5px;
     padding-bottom: 10px;
-    border-bottom: solid rgba(37, 37, 37, 0.5) 5px;
+    border-bottom: solid var(--primary-color-dark) 5px;
 }
 
-.outputArea button {
+
+/* .outputArea button {
     border: 0px;
     background-color: hsl(130, 100%, 65%);
     border-bottom: 5px solid hsl(107, 60%, 43%);
@@ -95,7 +144,7 @@ input:focus {
     border-bottom: 0px;
     top: 5px;
     outline-width: 0px;
-}
+} */
 
 
 /* TYPOGRAPHY */
@@ -105,6 +154,7 @@ h5,
 p {
     cursor: default;
     margin: 0px;
+    /* padding: 0px; */
 }
 
 h1 {
@@ -117,6 +167,7 @@ h5 {
 }
 
 #output {
+    color: var(--white-shade);
     margin: 10px;
 }
 
@@ -131,13 +182,16 @@ input p {
 }
 
 .right-floating {
+    color: var(--white-shade);
     position: fixed;
     bottom: 0px;
     right: 0px;
     padding: 3px;
+    font-weight: normal;
 }
 
 .left-floating {
+    color: var(--white-shade);
     position: fixed;
     bottom: 0px;
     left: 0px;
@@ -150,11 +204,34 @@ input p {
 @media (max-width: 600px) {
     input {
         width: 75%;
+        border: 0px solid var(--primary-color);
     }
-    #generateButton {
+    input:focus {
+        border: 3px solid var(--primary-color);
+    }
+    button {
         width: 65%;
     }
     #output {
         font-size: 14px;
+    }
+    a {
+        width: 65%;
+    }
+}
+
+
+/* Small height */
+
+@media (max-height: 500px) {
+    h1 {
+        padding: 5px;
+    }
+    .left-floating,
+    .right-floating {
+        display: none;
+    }
+    input {
+        height: 1.5rem;
     }
 }
