@@ -3,16 +3,10 @@ body {
     /* Bannars, input focus and stuff */
     /* bordering banners */
     /* Backgrounds */
-    /* --background-color: rgb(41, 41, 41);
-    --primary-color: #ec6133;
-    --primary-color-dark: #cc5027; */
     --background-color: rgb(49, 49, 49);
     --primary-color: #927fbf;
     --primary-color-dark: #6f579e;
     /* Buttons and stuff */
-    /* --secondary-color-light: rgb(255, 203, 106);
-    --secondary-color: hsl(39, 100%, 65%);
-    --secondary-color-dark: hsl(16, 100%, 65%); */
     --secondary-color-light: #a997d3;
     --secondary-color: #927fbf;
     --secondary-color-dark: #6f579e;
@@ -66,6 +60,7 @@ a {
 input {
     display: block;
     margin: 3px;
+    margin-bottom: 10px;
     width: 50%;
     height: 2rem;
     /* border: 3px dashed var(--black-shade); */
@@ -95,6 +90,7 @@ button {
     position: relative;
     top: 0px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 button:hover {
@@ -169,6 +165,7 @@ h5 {
 #output {
     color: var(--white-shade);
     margin: 10px;
+    word-wrap: break-word;
 }
 
 input p {
@@ -179,6 +176,10 @@ input p {
 #output {
     font-size: 20px;
     font-weight: bold;
+}
+
+#copyButton {
+    display: none;
 }
 
 .right-floating {
@@ -225,13 +226,14 @@ input p {
 
 @media (max-height: 500px) {
     h1 {
-        padding: 5px;
+        padding: 0px;
     }
     .left-floating,
     .right-floating {
         display: none;
     }
     input {
-        height: 1.5rem;
+        /* height: 1.5rem; */
+        margin-bottom: 3px;
     }
 }

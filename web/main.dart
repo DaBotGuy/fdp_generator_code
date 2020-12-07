@@ -22,6 +22,8 @@ void main() {
       }
       fdp = generateFDP(email, domain, id, masterPassword);
       setOutput(fdp);
+      Element copyButton = document.querySelector('#copyButton');
+      copyButton.style.display = 'unset';
     } catch (e) {}
   });
   Element copyButton = document.querySelector('.outputArea button');
